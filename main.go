@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"math/rand"
 	"os"
 	"strconv"
 	"strings"
@@ -47,7 +48,10 @@ func main() {
 
 		boardSize := 3 // Размер доски 3x3 (по-умолчанию)
 		state := playing
-		currentPlayer := cross
+
+		typesOfPlayers := []BoardField{cross, nought}
+		randomIndex := rand.Intn(len(typesOfPlayers))
+		currentPlayer := typesOfPlayers[randomIndex]
 
 		for {
 			fmt.Print("Enter the size of the board (3-9): ")
